@@ -14,7 +14,7 @@ The MediLedger Blockchain registers new manufacturers with the following functio
 
 ```
 CompanyDirectory.register(
-  ["rlp_encoded_gs1_company_prefix"],
+  ["0x6773313a636f6d70616e795f707265666978"],
   ["0x0123"],
   "ABC Corp",
   "0x1",
@@ -25,7 +25,7 @@ The following event is triggered by the successful execution of the function abo
 
 ```
 CompanyRegistered(
-  ["rlp_encoded_gs1_company_prefix"]
+  ["0x6773313a636f6d70616e795f707265666978000"]
   ["0x012300000000000000000000000000000000000"],
   "ABC Corp",
   "0x1000000000000000000000000000000000000000",
@@ -42,7 +42,7 @@ The following event is triggered by the successful execution of the above functi
 
 ```
 CertificateUpdated(
-  "rlp_encoded_gs1_company_prefix",
+  "0x6773313a636f6d70616e795f7072656669780000",
   "0x0123000000000000000000000000000000000000",
   "0x23AF.........................................9AE"
 )
@@ -64,14 +64,14 @@ The following events are triggered by each of the above functions upon successfu
 
 ```
 EndpointCreated(
-  "rlp_encoded_gs1_company_prefix",
+  "0x6773313a636f6d70616e795f7072656669780000",
   "0x0123000000000000000000000000000000000000",
   "0x3F3AC68000000000000000000000000000000000",
   "www.abc_corp.com/verifyURL"
 )
 
 EndpointUpdated(
-  "rlp_encoded_gs1_company_prefix",
+  "0x6773313a636f6d70616e795f7072656669780000",
   "0x0123000000000000000000000000000000000000",
   "0x3F3AC68000000000000000000000000000000000",
   "www.abc_corp.com/updated_verifyURL",
@@ -81,9 +81,9 @@ EndpointUpdated(
 #### 4. Test whether ABC Corp and endpoint 1 successfully created
 
 ```
-CompanyDirectory.companyExists("rlp_gs1_company_prefix", "0x0123")     // returns bool
+CompanyDirectory.companyExists("0x6773313a636f6d70616e795f7072656669780000", "0x0123")     // returns bool
 
-CompanyDirectory.getEndpointUrl("rlp_gs1_company_prefix", "0x0123", "0x1") // call with identity id, returns "www.abc_corp.com/updated_verifyURL"
+CompanyDirectory.getEndpointUrl("0x6773313a636f6d70616e795f7072656669780000", "0x0123", "0x1") // call with identity id, returns "www.abc_corp.com/updated_verifyURL"
 ```
 
 ## 5. Create XYZ Corp
