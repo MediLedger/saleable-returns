@@ -7,7 +7,7 @@ A blockchain-enabled low latency solution for the pharmaceutical industry to mak
 ## Documentation
 * [Overview](overview/README.md)
 
-* [Smart contracts documentation](https://chronicled.github.io/mediledger/docs/CompanyDirectoryInterface/)
+* [Smart contracts documentation](docs/docs/CompanyDirectoryInterface/index.html)
 
 * [Smart contracts usage examples](examples/README.md)
 
