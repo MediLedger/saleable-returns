@@ -90,8 +90,6 @@ CompanyDirectory.getEndpointUrl("0x6773313a636f6d70616e795f7072656669780000", "0
 
 Like step 1, create XYZ Corp on the blockchain. Use the following arguments for this demo script:
 
-XYZ Corp:
-
 | Argument      | Value         |
 | ------------- |-------------|
 |Company prefix | 0789|
