@@ -6,8 +6,8 @@ Only ABC Corp (i.e. the current owner of GTIN 1) can initiate the transfer.
 
 ```
   GtinDirectory.initTransfer(
-    "00006789123456",                                     // gtin
-    "0788"                                                // prefix of XYZ Corp
+    "0x00006789123456",
+    "0x0788"
   )
 ```
 
@@ -17,18 +17,18 @@ Only XYZ Corp (i.e. the destination company) can accept the transfer. Moreover, 
 
 ```
   GtinDirectory.acceptTransfer(
-    "00006789123456",                                     // gtin
-    2,                                                    // endpoint ID owned by XYZ Corp
-    "www.abc_corp.com/updated_verifyURL"                  // endpoint URL of previous owner
+    "0x00006789123456",
+    "0x128D93B",
+    "www.abc_corp.com/updated_verifyURL"
   )
 ```
 
 Successful execution triggers the following event.
 
 ```
-  GtinDirectory.Transferred(
-    "00006789123456",                                     // gtin
-    "0788",                                               // new company prefix
-    2                                                     // new endpoint id
+  Transferred(
+    "0x0000678912345600000000000000000000000000",
+    "0x0788000000000000000000000000000000000000",
+    "0x128D93B000000000000000000000000000000000",
   )
 ```

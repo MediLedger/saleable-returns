@@ -1,6 +1,12 @@
 ## Creating ABC Corp
 
-The following code snippets can be used to create and get information for a manufacturer on the blockchain. These use the *CompanyDirectory.sol* smart contract.
+The following code snippets can be used to create and get information for a manufacturer on the blockchain. These use the *CompanyDirectory.sol* (soon to be published) smart contract.
+
+Assuming we have the contract's ABI and deployed address, we can construct the `CompanyDirectory` as following using `web3.js`:
+
+```
+const CompanyDirectory = web3.eth.contract(CompanyDirectoryABI).at(deployedAddress);
+```
 
 #### 1. Register ABC Corp
 
@@ -8,37 +14,37 @@ The MediLedger Blockchain registers new manufacturers with the following functio
 
 ```
 CompanyDirectory.register(
-  ["gs1:company_prefix"],                     // _type_urns
-  ["0123"],                                   // _ids
-  "ABC Corp",                                 // _name
-  1,                                          // _permissions
-  0x4b0897b0513fdc7c541b6d9d7e929c4e5364d2db  // _owner_address
+  ["rlp_encoded_gs1_company_prefix"],
+  ["0x0123"],
+  "ABC Corp",
+  "0x1",
+  "0x4b0897b0513fdc7c541b6d9d7e929c4e5364d2db"
 )
 ```
 The following event is triggered by the successful execution of the function above:
 
 ```
-CompanyDirectory.CompanyRegistered(
-  ["gs1:company_prefix"]                      // identity_type_urns
-  ["0123"],                                   // identity_ids
-  "ABC Corp",                                 // name
-  1,                                          // permissions
-  0x4b0897b0513fdc7c541b6d9d7e929c4e5364d2db  // owner_address
+CompanyRegistered(
+  ["rlp_encoded_gs1_company_prefix"]
+  ["0x012300000000000000000000000000000000000"],
+  "ABC Corp",
+  "0x1000000000000000000000000000000000000000",
+  "0x4b0897b0513fdc7c541b6d9d7e929c4e5364d2db"
 )
 ```
 #### 2. Set security certificate for ABC Corp
 
 This can only be set by the company that owns the certificate (i.e. ABC Corp this case):
 ```
-CompanyDirectory.setCertificate(_certificate_data)
+CompanyDirectory.setCertificate("0x23AF.........................................9AE")
 ```
 The following event is triggered by the successful execution of the above function:
 
 ```
-CompanyDirectory.CertificateUpdated(
-  "gs1:company_prefix",                       // _id type
-  "0123",                                     // _id value
-  _certificate_data                           // certificate
+CertificateUpdated(
+  "rlp_encoded_gs1_company_prefix",
+  "0x0123000000000000000000000000000000000000",
+  "0x23AF.........................................9AE"
 )
 ```
 
@@ -46,38 +52,38 @@ CompanyDirectory.CertificateUpdated(
 These functions can only be called by the company that owns the endpoint (i.e. ABC Corp in this case):
 ```
 CompanyDirectory.addEndpoint(
-  1,                                          // endpoint id
-  "www.abc_corp.com/verifyURL"                // url
+  "0x3F3AC68",
+  "www.abc_corp.com/verifyURL"
 )
 CompanyDirectory.updateEndpoint(
-  1,                                          // endpoint id
-  "www.abc_corp.com/updated_verifyURL"        // url
+  "0x3F3AC68",
+  "www.abc_corp.com/updated_verifyURL"
 )
 ```
 The following events are triggered by each of the above functions upon successful execution:
 
 ```
-CompanyDirectory.EndpointCreated(
-  "gs1:company_prefix",                       // identity_type_urn
-  "0123",                                     // identity_id
-  1,                                          // endpoint_id
-  "www.abc_corp.com/verifyURL",               // url
+EndpointCreated(
+  "rlp_encoded_gs1_company_prefix",
+  "0x0123000000000000000000000000000000000000",
+  "0x3F3AC68000000000000000000000000000000000",
+  "www.abc_corp.com/verifyURL"
 )
 
-CompanyDirectory.EndpointUpdated(
-  "gs1:company_prefix",                       // identity_type_urn
-  "0123",                                     // identity_id
-  1,                                          // endpoint_id
-  "www.abc_corp.com/updated_verifyURL",       // url
+EndpointUpdated(
+  "rlp_encoded_gs1_company_prefix",
+  "0x0123000000000000000000000000000000000000",
+  "0x3F3AC68000000000000000000000000000000000",
+  "www.abc_corp.com/updated_verifyURL",
 )
 ```
 
 #### 4. Test whether ABC Corp and endpoint 1 successfully created
 
 ```
-CompanyDirectory.companyExists("gs1:company_prefix", "0123")     // returns bool
+CompanyDirectory.companyExists("rlp_gs1_company_prefix", "0x0123")     // returns bool
 
-CompanyDirectory.getEndpointUrl("gs1:company_prefix", "0123", 1) // call with identity id, returns "www.abc_corp.com/updated_verifyURL"
+CompanyDirectory.getEndpointUrl("rlp_gs1_company_prefix", "0x0123", "0x1") // call with identity id, returns "www.abc_corp.com/updated_verifyURL"
 ```
 
 ## 5. Create XYZ Corp

@@ -4,15 +4,15 @@ ABC Corp registers GTIN 1.
 
 ```
 GtinDirectory.register(
-  "00006789123456",                           // gtin
-  1                                           // endpoint id
+  "0x00006789123456",
+  "0x1"
 )
 ```
 The following event is triggered by the successful execution of the above function.
 
 ```
-GtinDirectory.Registered (
-  "00006789123456",                           // gtin
-  "0123"                                      // company prefix of ABC Corp
+Registered (
+  "0x0000678912345600000000000000000000000000",
+  "0x0123000000000000000000000000000000000000"
 )
 ```

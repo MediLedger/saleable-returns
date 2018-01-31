@@ -3,13 +3,13 @@
 *Distributor 1* receives a shipment of returned product. Reselling it as is would be illegal under the DCSCA 2019 law. To comply with the law, the distributor scans each data matrix code (SGTIN, lot number, expiration date) and uses a compatible client to discover and connect to a verification service URL. This client is connected to the permissioned MediLedger Blockchain and performs fast lookups because it maintains a local copy of its state. If the GTIN is not available within the MediLedger blockchain the client tries to connect to various other third-party lookup system (which will result in longer latency).
 
 ```
-> GtinDirectory.getEndpointId("00006789123456");
-  result = "service01"
+> GtinDirectory.getEndpointId("0x00006789123456");
+  result = "0x3E56280000000000000000000000000000000000"
 
-> GtinDirectory.getOwner("00006789123456");
-  result = "0351648"
+> GtinDirectory.getOwner("0x00006789123456");
+  result = "0x0351648000000000000000000000000000000000"
 
-> getEndpointUrl("gs1:company_prefix", "0351648", "service01");
+> getEndpointUrl(rlp_encoded_gs1_company_prefix, "0x0351648000000000000000000000000000000000", "0x3E56280000000000000000000000000000000000");
   result = "https://www.abc-corp.com/verify"
 
 ```
