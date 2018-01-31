@@ -19,7 +19,7 @@ Some proposed solutions are:
 * Manufacturers share shipped SGTINs with distributors (by means of EPCIS events).
 * Manufacturers share their product repository with a centralized trusted third party.
 
-In many cases these solutions are not feasable because they are incompatible with existing infrastructure.
+In many cases these solutions are not feasible because they are incompatible with existing infrastructure.
 MediLedger solves the problem by connecting to the manufacturer's existing product repository in a secure and decentralized manner.
 
 The MediLedger solution provides following functions:
