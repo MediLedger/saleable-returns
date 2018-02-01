@@ -14,6 +14,6 @@
 
 ```
 
-The client tries to establish a connection to the verification service's URL (*https://www.abc-corp.com/verify*). The service checks the client's IP address and certificate. A set of custom rules defined by the manufacturer (whitelist, blacklist, etc.) define who has authorization to access the verification service.
+The client tries to establish a connection to the verification service's URL (*https://www.abc-corp.com/verify*). This is done using client-to-client communications as exemplified [here](../client-client-examples/1-validate-SGTIN.md) The service checks the client's IP address and certificate. A set of custom rules defined by the manufacturer (whitelist, blacklist, etc.) define who has authorization to access the verification service.
 
 After the handshake is completed, the verification service queries the serialization repository. If no external data source is available, the MediLedger lookup service can optionally maintain a serialization database itself. If the given SGTIN, lot number and expiration date is found in the database the service confirms the authenticity of the product.

@@ -9,7 +9,9 @@ A blockchain-enabled low latency solution for the pharmaceutical industry to mak
 
 * [Smart contracts documentation](https://chronicled.github.io/mediledger/docs/CompanyDirectoryInterface/)
 
-* [Smart contracts usage examples](examples/README.md)
+* [Smart contracts usage examples](examples/smart-contract-examples/README.md)
+
+* [Client-to-Client communication examples](examples/client-client-examples/README.md)
 
 <a href="examples/3-Gtin-Lookup.md"><img src="overview/validate-sgtin.png" width="60%"></a>
 
