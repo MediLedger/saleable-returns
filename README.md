@@ -13,7 +13,7 @@ A blockchain-enabled low latency solution for the pharmaceutical industry to mak
 
 * [Client-to-Client communication examples](examples/client-client-examples/README.md)
 
-<a href="examples/3-Gtin-Lookup.md"><img src="overview/validate-sgtin.png" width="60%"></a>
+<a href="examples/smart-contract-examples/3-Gtin-Lookup.md"><img src="overview/validate-sgtin.png" width="60%"></a>
 
 ## Links
 
