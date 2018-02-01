@@ -44,13 +44,13 @@ The following diagrams illustrate the components as well as the flow of informat
 
 The system utilizes the following two smart contracts:
 
-* CompanyDirectory
+* CompanyDirectory:
 This smart contract is used to define a directory of companies (manufacturers and distributors). For each company, the directory stores metadata such as:
   * Company IDs: A company can have multiple ids, such as a GTIN prefix
   * Security Certificate: The certificate used to authenticate the company. (X509 / DER format)
   * Verification service URLs: The URLs to query a manufacturer for the status of a GTIN
 
-* GtinDirectory
+* GtinDirectory:
 This smart contract is used to define a directory of GTINs. For each GTIN, the directory stores metadata such as:
   * Current owner: The manufacturer that currently owns it
   * Creator: The manufacturer that originally created/registered the GTIN
