@@ -29,12 +29,12 @@ The MediLedger solution provides following functions:
 
 ## Solution Overview
 
-The MediLedger solution comprises of the following three key components:
+The MediLedger solution is comprised of the following three key components:
 * Blockchain: A private blockchain is used to store a lookup directory between a GTIN and a set of URLs. The URLs for a GTIN can be used to validate an SGTIN associated with the GTIN. The lookup directory is implemented using two smart contracts as described later.
 * Client: The client serves as the interface between industry participants' internal systems and the blockchain. The clients also can interact with each other to query for the status of an SGTIN.
 * Internal systems: These are the manufacturers' internal systems such as SAP and TraceLink. These store confidential information pertaining to the list of SGTINs manufactured by the manufacturer and can be used to verify a particular SGTIN.
 
-The following diagrams illustrate the three components as well as the flow of information in two key use cases:
+The following diagrams illustrate the components as well as the flow of information in two key use cases:
 
 ![Validating a GTIN](validate-sgtin.png)
 
@@ -46,15 +46,15 @@ The system utilizes the following two smart contracts:
 
 * CompanyDirectory
 This smart contract is used to define a directory of companies (manufacturers and distributors). For each company, the directory stores metadata such as:
-  * Company Ids: A company can have multiple ids, such as a GTIN prefix
+  * Company IDs: A company can have multiple ids, such as a GTIN prefix
   * Security Certificate: The certificate used to authenticate the company. (X509 / DER format)
-  * Lookup service URLs: The URLs to query a manufacturer for the status of a GTIN
+  * Verification service URLs: The URLs to query a manufacturer for the status of a GTIN
 
 * GtinDirectory
 This smart contract is used to define a directory of GTINs. For each GTIN, the directory stores metadata such as:
   * Current owner: The manufacturer that currently owns it
   * Creator: The manufacturer that originally created/registered the GTIN
-  * Lookup service URLs: A list of all relevant URLs to be used to verify the GTIN. These can span across manufacturers since the GTIN could have been transferred across manufacturers.
+  * Verification service URLs: A list of all relevant URLs to be used to verify the GTIN. These can span across manufacturers since the GTIN could have been transferred across manufacturers.
 
 
 ## Glossary of key terms
