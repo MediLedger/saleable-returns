@@ -1,4 +1,4 @@
-## Validate a SGTIN
+## Validate an SGTIN
 
 Before a distributor can legally resell a shipment of product, it needs to verify the product based on SGTIN, lot number, and expiration date. The first step involves discovering the verification service pertaining to that GTIN. This is done using the MediLedger Blockchain as exemplified [here](../smart-contract-examples/3-Gtin-Lookup.md).
 
