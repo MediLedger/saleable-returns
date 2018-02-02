@@ -1,6 +1,6 @@
 ## Creating ABC Corp
 
-The following code snippets can be used to create and get information for a manufacturer on the blockchain. These use the *CompanyDirectory.sol* (soon to be published) smart contract.
+The following code snippets can be used to create and get information for a manufacturer on the blockchain. These use the *CompanyDirectoryInterface* smart contract.
 
 Assuming we have the contract's ABI and deployed address, we can construct the `CompanyDirectory` as following using `web3.js`:
 
