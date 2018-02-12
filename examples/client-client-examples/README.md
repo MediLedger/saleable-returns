@@ -7,8 +7,8 @@ The main functions of the client-to-client connection are illustrated below.
 
 2. [Create an LD Entry](2-Create-LD-Entry.md)
 
-  Utilize the client-to-client connection to add an additional entry to the client's Lookup Directory.
+   Utilize the client-to-client connection to add an additional entry to the client's Lookup Directory.
 
 3. [Get Lookup Directory](3-Get-Lookup-Directory.md)
 
-  Utilize the client-to-client connection to get entries in the lookup directory.
+   Utilize the client-to-client connection to get entries in the lookup directory.
