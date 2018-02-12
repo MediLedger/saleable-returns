@@ -63,9 +63,9 @@ This smart contract is used to define a directory of GTINs. For each GTIN, the d
 #### Interoperability with other VRSs
 
 To support interoperability, MediLedger comprises of the following design features:
-* The Lookup Directory (implemented through smart contracts listed above) additionally stores the VRS associated with the manufacturer/repackager of the GTIN.
+* The Lookup Directory (implemented through smart contracts listed above) additionally stores an <code>external</code> field that signifies whether the responder's host exists within the MediLedger network or not.
 * The MediLedger network is a permissioned network, and thus Responder and Requestor clients can communicate directly with each other only if they are within the MediLedger network. This is to ensure security of the network.
-* The MediLedger network provides gateways that can securely communicate with other VRS providers. Any service provider can create a gateway on the MediLedger network so long as they support  the required specifications. The gateway enables two main functions:
+* The MediLedger network provides gateways that can securely communicate with other VRS providers. Gateways support the same functionality as other clients on the MediLedger network. Like other clients, any service provider can create a gateway on the MediLedger network so long as they support the required specifications. The gateway enables two main functions:
   * Synchronize the lookup directory with other VRS providers
   * Enable secure communication between clients inside the MediLedger network and other VRS providers.
 
