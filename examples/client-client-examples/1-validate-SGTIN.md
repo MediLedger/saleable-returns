@@ -2,10 +2,11 @@
 
 Before a distributor can legally resell a shipment of product, it needs to verify the product based on SGTIN, lot number, and expiration date. The first step involves discovering the verification service pertaining to that GTIN. This is done using the MediLedger Blockchain as exemplified [here](../smart-contract-examples/3-Gtin-Lookup.md).
 
-Once the distributor has identified the verification service, it uses a client-to-client communication channel to validate the product. This endpoint triggers a local-only lookup of the SGTIN with the specified properties in the serialization repository. If the combination of SGTIN, lot number and expiration date is not found, a response will be sent indicating that the product could not be found. If it is found, the client will return the SGTIN, lot number and expiration date and the distributor has received the legally required confirmation of validity.
+Once the distributor has identified the verification service, it uses a client-to-client communication channel to validate the product. If both Requestor and Responder clients are within MediLedger, the Requestor client can directly connect with the Responder client and use the following end point to verify the SGTIN information. If they are not both within MediLedger, the connection must be routed through one of MediLedger's gateways.
 
-	POST /api/2.0/asset/:sgtin_uri/validation
+This endpoint triggers a local-only lookup of the SGTIN with the specified properties in the serialization repository. If the combination of SGTIN, lot number and expiration date is not found, a response will be sent indicating that the product could not be found. If it is found, the client will return the SGTIN, lot number and expiration date and the distributor has received the legally required confirmation of validity.
 
+POST /api/2.0/asset/:sgtin_uri/validation
 
 ### Parameters
 
