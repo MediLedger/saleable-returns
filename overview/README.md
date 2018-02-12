@@ -2,6 +2,8 @@
 
 [MediLedger](https://www.mediledger.com/) is an initiative to create a blockchain-based supply chain solution for the pharmaceutical industry and establish an interoperable platform for the 2023 milestone of [DSCSA](https://www.fda.gov/Drugs/DrugSafety/DrugIntegrityandSupplyChainSecurity/DrugSupplyChainSecurityAct/). The current phase involves developing a blockchain-based solution that enables saleable returns under the 2019 milestone for DSCSA regulation. This document outlines the technical architecture utilized in MediLedger.
 
+Additionally, in accordance with HDA guidelines, MediLedger is an open VRS (Verification Router Service). This document also describes the technical architecture that enables MediLedger to interoperate with other VRSs.
+
 ## Introduction
 
 The US pharmaceutical supply chain includes manufacturers, repackagers, distributors and dispensers (hospital, pharmacy etc.).  In some cases the dispenser receives the wrong drug, has too much inventory, or has product which cannot be sold, so they send it back to the distributor.
@@ -26,6 +28,8 @@ The MediLedger solution provides following functions:
 * Distributors can verify the returned products based on SGTIN, lot number and expiration date by connecting directly to the responsible party (manufacturer or repackager).
 * The system is fast enough for a fully automated line.
 * Manufacturers can commission, withdraw, and transfer ownership of GTINs.
+
+As noted earlier, MediLedger also provides interoperability with other VRSs. This implies that distributors can successfully verify SGTINs even if they are not on the same VRS as the relevant manufacturer.
 
 ## Solution Overview
 
@@ -56,6 +60,19 @@ This smart contract is used to define a directory of GTINs. For each GTIN, the d
   * Creator: The manufacturer that originally created/registered the GTIN
   * Verification service URLs: A list of all relevant URLs to be used to verify the GTIN. These can span across manufacturers since the GTIN could have been transferred across manufacturers.
 
+#### Interoperability with other VRSs
+
+To support interoperability, MediLedger comprises of the following design features:
+* The Lookup Directory (implemented through smart contracts listed above) additionally stores the VRS associated with the manufacturer/repackager of the GTIN.
+* The MediLedger network is a permissioned network, and thus Responder and Requestor clients can communicate directly with each other only if they are within the MediLedger network. This is to ensure security of the network.
+* The MediLedger network provides gateways that can securely communicate with other VRS providers. Any service provider can create a gateway on the MediLedger network so long as they support  the required specifications. The gateway enables two main functions:
+  * Synchronize the lookup directory with other VRS providers
+  * Enable secure communication between clients inside the MediLedger network and other VRS providers.
+
+The following diagram illustrates the architecture as well as the
+example case where Requestor 1 (Distributor within MediLedger network) verifies an SGTIN with Responder 2 (Manufacturer/Re-packager registered with VRS 2)
+
+![Cross VRS SGTIN Verification](cross-VRS-SGTIN-verification.jpeg)
 
 ## Glossary of key terms
 

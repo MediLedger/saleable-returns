@@ -2,7 +2,7 @@
 
 ### Open source protocol for decentralized SGTIN verification and GTIN ownership transfer
 
-A blockchain-enabled low latency solution for the pharmaceutical industry to make saleable returns compliant with the DSCSA regulations.
+A blockchain-enabled low latency solution for the pharmaceutical industry to make saleable returns compliant with the DSCSA regulations. Designed in accordance with HDA guidelines, MediLedger enables interoperability with other VRSs.
 
 ## Documentation
 * [Overview](overview/README.md)
